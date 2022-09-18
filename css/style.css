@@ -51,9 +51,24 @@ main {
 
 .button {
   cursor: pointer;
-  color: inherit;
   justify-content: center;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.0015);
+  border-radius: 2px;
+  color: #595959;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button:hover {
+  background: #006d80;
+  border: 1px solid #006d80;
+  color: #fff;
 }
 
 .hide {
@@ -86,26 +101,6 @@ main {
   margin: 1px 0 1px 15px;
   padding: 2px;
   background-color: rgba(255, 255, 255, 0.3);
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  background: #ffffff;
-  border: 1px solid #d9d9d9;
-  box-sizing: border-box;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.0015);
-  border-radius: 2px;
-  color: #595959;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.button:hover {
-  background: #006d80;
-  border: 1px solid #006d80;
-  color: #fff;
 }
 
 p {
@@ -162,15 +157,13 @@ td:hover {
   text-align: right;
 }
 
-.abon-name:hover,
-.tarif-tv-name:hover {
+:is(.abon-name, .tarif-tv-name):hover {
   cursor: pointer;
   color: red;
   font-size: 16px;
 }
 
-.balans-in-table:hover,
-.abon-id:hover {
+:is(.balans-in-table, .abon-id:hover):hover {
   font-size: 8px;
 }
 
@@ -191,7 +184,6 @@ td:hover {
     #f5f5f5 100%
   );
   box-shadow: 0 -7px 5px rgba(158, 158, 163, 0.5);
-
   position: fixed;
   width: 550px;
   height: 200px;
@@ -203,7 +195,7 @@ td:hover {
 }
 
 .filter-fields {
-  max-width: 1200px;
+  width: 1200px;
   position: fixed;
   margin-bottom: 40px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -216,11 +208,12 @@ td:hover {
 }
 
 .main-db {
-  margin-top: 90px;
+  margin-top: 120px;
+  display: flex;
 }
 
-.balans-in-table {
-  text-align: auto;
+.main-db :is(th, td):nth-child(1) {
+  width: 500px;
 }
 
 .modal {
@@ -378,4 +371,10 @@ td:hover {
 
 .abon-card {
   display: none;
+}
+
+.buttons-filter {
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
 }

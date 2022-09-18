@@ -37,10 +37,9 @@ $query .= " LIMIT 50"; //добавить функционал количест�
 //echo $query;
 ?>
   <header>
-  <button id="add-abonent">Добавить абонента</button>
-
+  <button class="button" id="add-abonent">Добавить абонента</button>
 	<div class="filter-fields">
-        <form action="index.php" method="post">
+        <form action="index.php" method="post" >
         <legend>Фильтр</legend>
         <table>
             <tr>
@@ -50,7 +49,7 @@ $query .= " LIMIT 50"; //добавить функционал количест�
                 </td>
                 <td>
                     <label class="filter-label" for="abon_name">ФИО</label>
-                    <input type="search" name="abon_name" maxlength="40" size="30" placeholder="Все абоненты">
+                    <input type="search" name="abon_name" maxlength="40" size="25" placeholder="Все абоненты">
                 </td>
                 <td>
                     <label class="filter-label" for="balance">Баланс</label>
@@ -58,7 +57,7 @@ $query .= " LIMIT 50"; //добавить функционал количест�
                 </td>
                 <td>
                     <label class="filter-label" for="rayon_name">Район</label>
-                    <input name="rayon_name" type="text" list="all-rayons" maxlength="15" size="15" placeholder="Все">
+                    <input name="rayon_name" type="text" list="all-rayons" maxlength="15" size="12" placeholder="Все">
                     <datalist id="all-rayons">
                       <select>
                           <?php echo get_data_for_options("rayons", "rayon_name") ?>
@@ -76,27 +75,26 @@ $query .= " LIMIT 50"; //добавить функционал количест�
                 </td>
                 <td>
                     <label class="filter-label" for="home_number">Дом</label>
-                    <input type="text" name="home_number" maxlength="15" size="5" placeholder="Все">     
+                    <input type="text" name="home_number" maxlength="15" size="4" placeholder="Все">     
                 </td>
                 <td>
-                    <label class="filter-label" for="appartment_number">Квартира</label>
-                    <input type="text" name="appartment_number" maxlength="4" size="4" placeholder="Все">
+                    <label class="filter-label" for="appartment_number">Кв.</label>
+                    <input type="text" name="appartment_number" maxlength="4" size="3" placeholder="Все">
                 </td>
                 <td>
                     <label class="filter-label" for="tarif_tv_name">Пакет</label>
-                    <input name="tarif_tv_name" list="all-tarif" type="text" maxlength="25" size="25" placeholder="Все">
+                    <input name="tarif_tv_name" list="all-tarif" type="text" maxlength="25" size="20" placeholder="Все">
                     <datalist id="all-tarif">
                       <select>
                           <?php echo get_data_for_options("tarifs_tv", "tarif_tv_name") ?>
                       </select>
                     </datalist>
                 </td>
-                <td>
-                    <input type="submit" name="filter-button" value="Обновить" />
-                </td>
-                <td></td>
             </tr>
         </table>
+        <div class="buttons-filter">
+          <input class="button" type="submit" name="filter-button" value="Обновить" />
+        </div>
         </form>
       </div>
 	</header>
@@ -125,8 +123,6 @@ if ($rows == 0)
         <th>Дом</th>
         <th>Квартира</th>
         <th>Пакет</th>
-        <th></th>
-        <th></th>
       </tr>
   _END;
 

@@ -82,7 +82,7 @@ function getAjax(params, url = "getsqldata.php") {
 
   if (!params) return;
 
-  request = new ajaxRequest();
+  request = new XMLHttpRequest();
 
   with (request) {
     open("POST", url, false);
@@ -90,12 +90,12 @@ function getAjax(params, url = "getsqldata.php") {
     onreadystatechange = function () {
       if (this.readyState == 4)
         if (this.status == 200)
-          if (this.responseText != null) {
-            console.log(responseText);
+          if (this.response != null) {
+            console.log(response);
             responseData =
-              this.responseText[0] == "["
-                ? JSON.parse(this.responseText)
-                : this.responseText;
+              this.response[0] == "["
+                ? JSON.parse(this.response)
+                : this.response;
           } else console.warn("Ошибка AJAX: данные не получены");
     };
     send(params);
@@ -130,28 +130,6 @@ function setDataForSelect(table, abonValueId, filterValueId) {
   }
 
   return htmls;
-}
-
-function ajaxRequest() {
-  try {
-    // Браузер не относится к семейству IE?
-
-    var request = new XMLHttpRequest();
-  } catch (e1) {
-    try {
-      // Это IE 6+?
-      request = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (e2) {
-      try {
-        // Это IE 5?
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-      } catch (e3) {
-        // Данный браузер не поддерживает AJAX
-        request = false;
-      }
-    }
-  }
-  return request;
 }
 
 function O(i) {
